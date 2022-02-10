@@ -27,7 +27,14 @@ export class FormComponent implements OnInit {
 
   constructor(private router: Router) {
     if(this.userList) {
-      this.displayList();
+      this.userList.forEach((element, index) => {
+        this.userInfo += `
+        Name: ${element.name}
+        College: ${element.college}
+        Degree: ${element.degree}
+        Specialization: ${element.specialization}
+        `;
+      });
     }
   }
 
@@ -44,19 +51,15 @@ export class FormComponent implements OnInit {
   }
 
   displayList() {
-    this.userList.forEach((element, index) => {
-      this.userInfo += `User-${index+1}:
-      Name: ${element.name}
-      College: ${element.college}
-      Degree: ${element.degree}
-      Specialization: ${element.specialization}
-      `
-    });
+    this.userInfo += `
+      Name: ${this.user.name}
+      College: ${this.user.college}
+      Degree: ${this.user.degree}
+      Specialization: ${this.user.specialization}
+      `;
   }
 
   onSave() {
-    this.userList.push(this.user);
-
     this.displayList();
   }
 

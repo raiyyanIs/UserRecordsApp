@@ -1,10 +1,12 @@
 <div class="container">
 
-    <div class="row">
+    <div class="row text-right">
+
         <button class="btn btn-secondary" (click)="onLogout()">Logout</button>
     </div>
     <div class="row">
         <div class="col-sm-6">
+            <h3>Form</h3>
             <form>
                 <div class="form-group">
                     <label>Name:</label>
@@ -47,8 +49,11 @@
         </div>
 
         <div class="col-sm-6">
-            <h3>Users List</h3>
-            <div>{{ userInfo }}</div>
+            <div id="user-list"> 
+                <h3>Users List</h3>           
+                <p>{{ userInfo }}</p>
+            </div>
+
         </div>
     </div>
 </div>

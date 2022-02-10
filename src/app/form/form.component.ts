@@ -17,9 +17,9 @@ export class FormComponent implements OnInit {
 
   userList = [{
     name: "John",
-    college: "Harvard",
-    degree: "BCA",
-    specialization: ""
+    college: "DU",
+    degree: "B.Sc.",
+    specialization: "Maths"
   },];
 
   userInfo = "";
@@ -28,13 +28,11 @@ export class FormComponent implements OnInit {
   constructor(private router: Router) {
     if(this.userList) {
       this.userList.forEach((element, index) => {
-        this.userInfo += `
-        Name: ${element.name}
-        College: ${element.college}
-        Degree: ${element.degree}
-        Specialization: ${element.specialization}
-        `;
-      });
+        this.userInfo += ("<br><br>Name: " + element.name +
+        "<br>College: " + element.college +
+        "<br>Degree: " + element.degree +
+        "<br>Specialization: " + element.specialization) 
+      }); 
     }
   }
 
@@ -51,12 +49,15 @@ export class FormComponent implements OnInit {
   }
 
   displayList() {
-    this.userInfo += `
-      Name: ${this.user.name}
-      College: ${this.user.college}
-      Degree: ${this.user.degree}
-      Specialization: ${this.user.specialization}
-      `;
+      if(!this.user.specialization) {
+        this.user.specialization = "None";
+      }
+
+      this.userInfo += ("<br><br>Name: " + this.user.name +
+      "<br>College: " + this.user.college +
+      "<br>Degree: " + this.user.degree +
+      "<br>Specialization: " + this.user.specialization 
+      ); 
   }
 
   onSave() {

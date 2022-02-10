@@ -18,8 +18,11 @@ export class UserLoginComponent implements OnInit {
   }
 
   onLogin() {
-    if(this.email && this.password) {
+    if(this.email === "abc@mail.com" && this.password === "1234") {
       this.router.navigateByUrl('/form');
+    }
+    else{
+      alert("Incorrect email or password");
     }
   }
 

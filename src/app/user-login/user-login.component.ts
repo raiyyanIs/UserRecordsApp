@@ -11,6 +11,7 @@ export class UserLoginComponent implements OnInit {
   email = ""
   password = "";
   status = "";
+  invalid = false;
 
   constructor(private router: Router) { }
 
@@ -22,7 +23,7 @@ export class UserLoginComponent implements OnInit {
       this.router.navigateByUrl('/form');
     }
     else{
-      alert("Incorrect email or password");
+      this.invalid = true;
     }
   }
 

@@ -1,3 +1,9 @@
 .container{
     margin-top: 100px;
 }
+
+#warning{
+    color: red;
+    display: inline;
+    border: 2px solid black;
+}

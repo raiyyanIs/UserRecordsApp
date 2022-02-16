@@ -8,6 +8,7 @@ import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { UserListComponent } from './form/user-list/user-list.component';
+import { UserFormComponent } from './form/user-form/user-form.component';
 
 const appRoutes: Routes = [
   {path: '', component: UserLoginComponent},
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
     UserLoginComponent,
     FormComponent,
     UserListComponent,
+    UserFormComponent,
   ],
   imports: [
     BrowserModule,

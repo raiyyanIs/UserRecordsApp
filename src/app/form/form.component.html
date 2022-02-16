@@ -1,55 +1,16 @@
 <div class="container">
-
     <div class="row text-right">
-
         <button class="btn btn-secondary" (click)="onLogout()">Logout</button>
     </div>
     <div class="row">
         <div class="col-sm-4">
             <h3>Form</h3>
-            <form>
-                <div class="form-group">
-                    <label>Name:</label>
-                    <input type="text" [(ngModel)]="user.name" class="form-control" name="name"> 
-                </div>
-
-                <div class="form-group">
-                    <label>College:</label>
-                    <input type="text" [(ngModel)]="user.college" class="form-control" name="collegeName">
-                </div>
-
-                <div class="form-group">
-                    <label>Degree:</label>
-                    <select class="form-control" name="degree" [(ngModel)]="user.degree">
-                        <option value="" default>Select your degree</option>
-                        <option value="BA">BA</option>
-                        <option value="B.Sc">B.Sc</option>
-                        <option value="BCA">BCA</option>
-                        <option value="B.Arch">B.Arch</option>
-                        <option value="B.Tech">B.Tech</option>
-                        <option value="BBA">BBA</option>
-                        <option value="BFM">BFM</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Specialization (if any):</label>
-                    <input type="text" [(ngModel)]="user.specialization" class="form-control" name="specialization">
-                </div>
-                <div class="form-row">
-                    <div class="col-sm-6">
-                        <button type="submit" class="btn btn-success" [disabled]="!checkValidity()" (click)="onSave()">Save</button>
-                    </div>
-                    <div class="col-sm-6">
-                        <button type="reset" class="btn btn-danger">Cancel</button>
-                    </div>
-                </div>
-            </form>
+            <app-user-form (infoEntered)="getInfo($event)"></app-user-form>
         </div>
 
         <div class="col-sm-6" id="user-list">
             <h3>User List</h3>
-            <app-user-list [info]="userInfo"></app-user-list>
+            <app-user-list [userList]="info"></app-user-list>
         </div>
     </div>
 </div>

@@ -43,17 +43,13 @@
                     <div class="col-sm-6">
                         <button type="reset" class="btn btn-danger">Cancel</button>
                     </div>
-
                 </div>
             </form>
         </div>
 
-        <div class="col-sm-6">
-            <div id="user-list"> 
-                <h3>Users List</h3>           
-                <p [innerHTML]="userInfo"></p>
-            </div>
-
+        <div class="col-sm-6" id="user-list">
+            <h3>User List</h3>
+            <app-user-list [info]="userInfo"></app-user-list>
         </div>
     </div>
 </div>

@@ -22,21 +22,26 @@ export class UserFormComponent implements OnInit {
   },];
 
   userInfo = "";
+  dInfo = "";
 
   @Output() infoEntered = new EventEmitter<string>();
+  @Output() defaultInfo = new EventEmitter<string>();
 
   constructor() {
+
+  }
+
+  ngOnInit(): void {
     if(this.userList) {
       this.userList.forEach((element) => {
-        this.userInfo += ("<br><br>Name: " + element.name +
+        this.dInfo += ("<br><br>Name: " + element.name +
         "<br>College: " + element.college +
         "<br>Degree: " + element.degree +
         "<br>Specialization: " + element.specialization) 
       }); 
     }
-  }
+    this.defaultInfo.emit(this.dInfo);
 
-  ngOnInit(): void {
   }
 
   checkValidity(): boolean {
@@ -58,7 +63,6 @@ export class UserFormComponent implements OnInit {
       "<br>Degree: " + this.user.degree +
       "<br>Specialization: " + this.user.specialization 
       ); 
-
       this.infoEntered.emit(this.userInfo);
   }
 

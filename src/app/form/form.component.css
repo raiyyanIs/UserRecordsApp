@@ -8,5 +8,9 @@ h3{
 }
 
 #user-list{
-    margin-left: 100px;
+    margin-left: 50px;
+}
+
+#default-list{
+    margin-left: 15px;
 }

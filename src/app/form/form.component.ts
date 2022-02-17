@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class FormComponent implements OnInit {
 
   info = "";
+  defInfo = "";
 
   constructor(private router: Router) {
   }
@@ -19,6 +20,10 @@ export class FormComponent implements OnInit {
 
   onLogout() {
     this.router.navigateByUrl('');
+  }
+
+  getDefInfo($event: string) {
+    this.defInfo = $event;
   }
 
   getInfo($event: string) {

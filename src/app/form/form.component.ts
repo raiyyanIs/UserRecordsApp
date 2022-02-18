@@ -10,7 +10,15 @@ import { Router } from '@angular/router';
 export class FormComponent implements OnInit {
 
   info = "";
-  defInfo = "";
+  // defInfo = "";
+  mylist = [
+    {
+      name: "Raiyyan",
+      college: "DU",
+      degree: "B.Tech",
+      specialization: null
+    },
+  ]
 
   constructor(private router: Router) {
   }
@@ -22,12 +30,13 @@ export class FormComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
-  getDefInfo($event: string) {
-    this.defInfo = $event;
-  }
+  // getDefInfo($event: string) {
+  //   this.defInfo = $event;
+  // }
 
-  getInfo($event: string) {
-    this.info = $event;
+  getInfo($event: any) {
+    // this.info = $event;
+    this.mylist.push($event);
   }
 
 }

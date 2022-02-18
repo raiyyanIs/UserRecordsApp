@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-user-form',
@@ -7,6 +7,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class UserFormComponent implements OnInit {
 
+  @ViewChild('myform') inputform: ElementRef | any;
+  @ViewChild('myname') inputname: ElementRef | any;
+
   user = {
     name: "",
     college: "",
@@ -14,34 +17,16 @@ export class UserFormComponent implements OnInit {
     specialization: ""
   };
 
-  userList = [{
-    name: "John",
-    college: "DU",
-    degree: "B.Sc.",
-    specialization: "Maths"
-  },];
+  //userInfo = "";
 
-  userInfo = "";
-  dInfo = "";
+  @Output() infoEntered = new EventEmitter<{name : string, college : string, degree : string, specialization: string}>();
 
-  @Output() infoEntered = new EventEmitter<string>();
-  @Output() defaultInfo = new EventEmitter<string>();
 
   constructor() {
 
   }
 
   ngOnInit(): void {
-    if(this.userList) {
-      this.userList.forEach((element) => {
-        this.dInfo += ("<br><br>Name: " + element.name +
-        "<br>College: " + element.college +
-        "<br>Degree: " + element.degree +
-        "<br>Specialization: " + element.specialization) 
-      }); 
-    }
-    this.defaultInfo.emit(this.dInfo);
-
   }
 
   checkValidity(): boolean {
@@ -54,20 +39,28 @@ export class UserFormComponent implements OnInit {
   }
 
   displayInfo() {
-      if(!this.user.specialization) {
-        this.user.specialization = "None";
-      }
+      // if(!this.user.specialization) {
+      //   this.user.specialization = "None";
+      // }
 
-      this.userInfo += ("<br><br>Name: " + this.user.name +
-      "<br>College: " + this.user.college +
-      "<br>Degree: " + this.user.degree +
-      "<br>Specialization: " + this.user.specialization 
-      ); 
-      this.infoEntered.emit(this.userInfo);
+      // this.userInfo += ("<br><br>Name: " + this.user.name +
+      // "<br>College: " + this.user.college +
+      // "<br>Degree: " + this.user.degree +
+      // "<br>Specialization: " + this.user.specialization 
+      // );
+      
+      console.log(this.user);
+      
+      this.infoEntered.emit(this.user);
   }
 
   onSave() {
     this.displayInfo();
+
+  }
+
+  onReset() {
+    this.inputform.nativeElement.reset();
   }
 
 

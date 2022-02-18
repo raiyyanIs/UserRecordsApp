@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-sm-4">
             <h3>Form</h3>
-            <app-user-form (defaultInfo)="getDefInfo($event)" (infoEntered)="getInfo($event)"></app-user-form>
+            <app-user-form (infoEntered)="getInfo($event)"></app-user-form>
         </div>
 
         <div class="col-sm-6" id="user-list">
             <h3>User List</h3>
-            <p [innerHTML]="defInfo" id="default-list"></p>
-            <app-user-list [userList]="info"></app-user-list>
+            <!-- <p [innerHTML]="defInfo" id="default-list"></p> -->
+            <app-user-list [userList]="mylist"></app-user-list>
         </div>
     </div>
 </div>

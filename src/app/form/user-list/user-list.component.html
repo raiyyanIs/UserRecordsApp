@@ -1,7 +1,16 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <p [innerHTML]="userList"></p>
+            <!-- <p [innerHTML]="userList"></p> -->
+            
+            <ul *ngFor="let item of userList">
+                <li>Name: {{ item.name }} <br>
+                    College: {{ item.college }} <br>
+                    Degree: {{ item.degree }} <br>
+                    Specialization: {{ item.specialization }} 
+                </li>
+            </ul>
+    
         </div>
     </div>
 </div>

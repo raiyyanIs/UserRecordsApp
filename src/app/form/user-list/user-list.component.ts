@@ -7,7 +7,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 })
 export class UserListComponent implements OnInit {
 
-  @Input() userList: string = "";
+  @Input() userList: any = [];
 
   constructor() { }
 

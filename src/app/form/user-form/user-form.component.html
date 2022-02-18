@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <form>
+            <form #myform>
                 <div class="form-group">
                     <label>Name:</label>
-                    <input type="text" [(ngModel)]="user.name" class="form-control" name="name"> 
+                    <input type="text" [(ngModel)]="user.name" class="form-control" name="name" #myname> 
                 </div>
 
                 <div class="form-group">
@@ -35,7 +35,7 @@
                         <button type="submit" class="btn btn-success" [disabled]="!checkValidity()" (click)="onSave()">Save</button>
                     </div>
                     <div class="col-sm-6">
-                        <button type="reset" class="btn btn-danger">Cancel</button>
+                        <button type="submit" class="btn btn-danger" (click)="onReset()">Cancel</button>
                     </div>
                 </div>
             </form>

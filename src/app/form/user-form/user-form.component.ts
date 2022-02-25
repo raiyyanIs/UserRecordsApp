@@ -49,13 +49,14 @@ export class UserFormComponent implements OnInit {
       // "<br>Specialization: " + this.user.specialization 
       // );
       
-      console.log(this.user);
+      //console.log(this.user);
       
       this.infoEntered.emit(this.user);
   }
 
   onSave() {
     this.displayInfo();
+    this.onReset();
 
   }
 

@@ -3,11 +3,20 @@
         <div class="col-sm-6">
             <!-- <p [innerHTML]="userList"></p> -->
             
-            <ul *ngFor="let item of userList">
-                <li>Name: {{ item.name }} <br>
-                    College: {{ item.college }} <br>
-                    Degree: {{ item.degree }} <br>
-                    Specialization: {{ item.specialization }} 
+            <ul *ngFor="let item of newlist">
+                <li>
+                    <p>
+                        <label>Name:</label> {{ item.name }}
+                    </p>
+                    <p>
+                        <label>College: </label> {{ item.college }}
+                    </p>
+                    <p>
+                        <label>Degree:</label> {{ item.degree }}
+                    </p>
+                    <p>
+                        <label>Specialization: </label> {{ item.specialization }}
+                    </p>
                 </li>
             </ul>
     

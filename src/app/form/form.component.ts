@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -19,6 +20,7 @@ export class FormComponent implements OnInit {
       specialization: null
     },
   ]
+
 
   constructor(private router: Router) {
   }

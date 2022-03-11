@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -7,61 +8,41 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '
 })
 export class UserFormComponent implements OnInit {
 
-  @ViewChild('myform') inputform: ElementRef | any;
-  @ViewChild('myname') inputname: ElementRef | any;
+  userForm: FormGroup | any;
 
-  user = {
-    name: "",
-    college: "",
-    degree: "",
-    specialization: ""
-  };
 
-  //userInfo = "";
-
-  @Output() infoEntered = new EventEmitter<{name : string, college : string, degree : string, specialization: string}>();
+  @Output() newUser = new EventEmitter<{name: string, college: string, degree: string, specialization: string}>();
 
 
   constructor() {
-
   }
 
   ngOnInit(): void {
+
+    this.userForm = new FormGroup({
+      'name': new FormControl(null, Validators.required),
+      'college': new FormControl(null),
+      'degree': new FormControl("", Validators.required), 
+      'specialization': new FormControl(null)
+    });
   }
+
 
   checkValidity(): boolean {
-    if (this.user.name && this.user.degree) {
+    if (this.userForm.valid) {
       return true;
     }
-    else {
-      return false;
-    }
+    return false;
   }
 
-  displayInfo() {
-      // if(!this.user.specialization) {
-      //   this.user.specialization = "None";
-      // }
-
-      // this.userInfo += ("<br><br>Name: " + this.user.name +
-      // "<br>College: " + this.user.college +
-      // "<br>Degree: " + this.user.degree +
-      // "<br>Specialization: " + this.user.specialization 
-      // );
-      
-      //console.log(this.user);
-      
-      this.infoEntered.emit(this.user);
-  }
 
   onSave() {
-    this.displayInfo();
-    this.onReset();
-
+    console.log(this.userForm);
+    this.newUser.emit(this.userForm.value);
   }
 
   onReset() {
-    this.inputform.nativeElement.reset();
+    this.userForm.reset();
   }
 
 

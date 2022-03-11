@@ -1,20 +1,20 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <form #myform>
+            <form [formGroup]="userForm" (ngSubmit)="onSave()">
                 <div class="form-group">
                     <label>Name:</label>
-                    <input type="text" [(ngModel)]="user.name" class="form-control" name="name" #myname> 
+                    <input type="text" formControlName="name" class="form-control" name="name"> 
                 </div>
 
                 <div class="form-group">
                     <label>College:</label>
-                    <input type="text" [(ngModel)]="user.college" class="form-control" name="collegeName">
+                    <input type="text" formControlName="college" class="form-control" name="collegeName">
                 </div>
 
                 <div class="form-group">
                     <label>Degree:</label>
-                    <select class="form-control" name="degree" [(ngModel)]="user.degree">
+                    <select class="form-control" name="degree" formControlName="degree">
                         <option value="" default>Select your degree</option>
                         <option value="BA">BA</option>
                         <option value="B.Sc">B.Sc</option>
@@ -28,11 +28,11 @@
 
                 <div class="form-group">
                     <label>Specialization (if any):</label>
-                    <input type="text" [(ngModel)]="user.specialization" class="form-control" name="specialization">
+                    <input type="text" formControlName="specialization" class="form-control" name="specialization">
                 </div>
                 <div class="form-row">
                     <div class="col-sm-6">
-                        <button type="submit" class="btn btn-success" [disabled]="!checkValidity()" (click)="onSave()">Save</button>
+                        <button type="submit" class="btn btn-success" [disabled]="!checkValidity()">Save</button>
                     </div>
                     <div class="col-sm-6">
                         <button type="submit" class="btn btn-danger" (click)="onReset()">Cancel</button>

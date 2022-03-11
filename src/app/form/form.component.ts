@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 
 export class FormComponent implements OnInit {
 
-  info = "";
-  // defInfo = "";
   mylist = [
     {
       name: "Raiyyan",
@@ -32,13 +30,14 @@ export class FormComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
-  // getDefInfo($event: string) {
-  //   this.defInfo = $event;
-  // }
-
   getInfo($event: any) {
-    // this.info = $event;
-    this.mylist.push($event);
+    console.log($event);
+
+    if($event.name != null) {
+      this.mylist.push($event);
+    }
   }
+
+
 
 }

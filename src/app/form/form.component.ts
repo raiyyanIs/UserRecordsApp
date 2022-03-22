@@ -30,12 +30,10 @@ export class FormComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
-  getInfo($event: any) {
-    console.log($event);
-
-    if($event.name != null) {
-      this.mylist.push($event);
-    }
+  getInfo(event: any) {
+    
+    console.log(event);
+    this.mylist.push(event);
   }
 
 
